@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :users do
+    member do
+      get 'feed' # This sets up a route like /users/:id/feed
+    end
+  end
 end

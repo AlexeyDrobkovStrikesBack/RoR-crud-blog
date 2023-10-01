@@ -1,4 +1,10 @@
 <div id="<%= dom_id post %>">
+  ___________________________
+  <p>
+    <strong>Owner:</strong>
+    <%= post.user.email %>
+  </p>
+
   <% if post.image.attached? %>
     <%= image_tag post.image %>
   <% end %>
@@ -11,11 +17,6 @@
   <p>
     <strong>Description:</strong>
     <%= post.description %>
-  </p>
-
-  <p>
-    <strong>Owner:</strong>
-    <%= post.user.email %>
   </p>
 
 </div>

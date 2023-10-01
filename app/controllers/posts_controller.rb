@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-  end
+  end  
 
   # GET /posts/new
   def new
@@ -34,6 +34,8 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+
+    @user_feed = UserFeed.create(user: current_user, post: @post)
   end
 
   # PATCH/PUT /posts/1 or /posts/1.json

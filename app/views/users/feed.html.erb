@@ -1,0 +1,11 @@
+<h2><%= @user.email %> Feed</h2>
+<ul>
+    <% @user.feed_posts.each do |post| %>
+        <%= render post %>
+        <p>
+        <%= link_to "Show this post", post %>
+        </p>
+    <% end %>
+</ul>
+
+<%= link_to "Back to posts", posts_path %>
