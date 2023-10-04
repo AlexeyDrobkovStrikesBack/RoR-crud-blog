@@ -10,6 +10,11 @@
     <% if post.user.email == "second@gmail.com" %>
       <%= link_to 'View Feed', "/users/2/feed" %>
     <% end %>
+
+
+    <% if post.user.email == "thirg@gmail.com" %>
+      <%= link_to 'View Feed', "/users/3/feed" %>
+    <% end %>
   </p>
 
   <% if post.image.attached? %>

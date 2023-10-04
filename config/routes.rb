@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "posts#index"
 
-  # resources :posts
   resources :posts do
     resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
@@ -15,4 +14,6 @@ Rails.application.routes.draw do
       get 'feed' # This sets up a route like /users/:id/feed
     end
   end
+
+  resources :relationships, only: [:create, :destroy]
 end

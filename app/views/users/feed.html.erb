@@ -1,4 +1,6 @@
-<h2><%= @user.email %> Feed</h2>
+<h2>Feed <%= @user.email %></h2>
+<p>Followers: <%= @user.followers_count %></p>
+
 <ul>
     <% @user.feed_posts.each do |post| %>
         <%= render post %>
@@ -7,5 +9,14 @@
         </p>
     <% end %>
 </ul>
+
+<% unless current_user == @user %>
+  <% if current_user.following?(@user) %>
+    <p>You are following!</p>
+    <%= button_to "Unfollow", relationship_path(current_user.active_relationships.find_by(followed_id: @user.id)), method: :delete %>
+  <% else %>
+    <%= button_to "Follow", relationships_path(followed_id: @user.id), method: :post %>
+  <% end %>
+<% end %>
 
 <%= link_to "Back to posts", posts_path %>
