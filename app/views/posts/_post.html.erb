@@ -1,8 +1,15 @@
 <div id="<%= dom_id post %>">
-  ___________________________
+  ____________________________
   <p>
     <strong>Owner:</strong>
     <%= post.user.email %>
+    <% if post.user.email == "first@gmail.com" %>
+      <%= link_to 'View Feed', "/users/1/feed" %>
+    <% end %>
+
+    <% if post.user.email == "second@gmail.com" %>
+      <%= link_to 'View Feed', "/users/2/feed" %>
+    <% end %>
   </p>
 
   <% if post.image.attached? %>

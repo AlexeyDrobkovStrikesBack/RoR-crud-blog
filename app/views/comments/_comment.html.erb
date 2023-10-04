@@ -1,0 +1,7 @@
+<div class="comment">
+  <strong><%= comment.user.email %>:</strong>
+  <%= comment.body %>
+  <% if comment.user == current_user %>
+    <%= button_to "Delete Comment", [comment.post, comment], method: :delete %>
+  <% end %>
+</div>

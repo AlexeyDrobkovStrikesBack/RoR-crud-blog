@@ -2,11 +2,6 @@
 
 <%= render @post %>
 
-<!--
-<div>
-  <%= image_tag @post.image if @post.image.attached? %>
-</div>
--->
 
 <div>
   <% if current_user == @post.user %>
@@ -15,4 +10,12 @@
   <%= link_to "Back to posts", posts_path %>
 
   <%= button_to "Destroy this post", @post, method: :delete %>
+</div>
+
+<div>
+  <h5>Comments:</h5>
+  <% @post.comments.each do |comment| %>
+    <%= render partial: 'comments/comment', locals: { comment: comment } %>
+  <% end %>
+  <%= render 'comments/form', post: @post %>
 </div>
