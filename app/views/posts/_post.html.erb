@@ -3,18 +3,7 @@
   <p>
     <strong>Owner:</strong>
     <%= post.user.email %>
-
-    <% if post.user.email == "first@gmail.com" %>
-      <%= link_to 'View Feed', "/users/1/feed" %>
-    <% end %>
-
-    <% if post.user.email == "second@gmail.com" %>
-      <%= link_to 'View Feed', "/users/2/feed" %>
-    <% end %>
-
-    <% if post.user.email == "thirg@gmail.com" %>
-      <%= link_to 'View Feed', "/users/3/feed" %>
-    <% end %>
+    <%= link_to 'View Feed', user_feed_path(post.user) %>
   </p>
 
   <% if post.image.attached? %>
@@ -30,5 +19,4 @@
     <strong>Description:</strong>
     <%= post.description %>
   </p>
-
 </div>
